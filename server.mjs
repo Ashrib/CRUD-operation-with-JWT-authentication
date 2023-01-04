@@ -9,7 +9,7 @@ import router from './routes/api.mjs'
 
 const app = express()
 const port = process.env.PORT || 3000
-const mongodbURI = process.env.mongodbURI || "mongodb+srv://admin:admin123@cluster0.vpuj8pq.mongodb.net/mydatabase?retryWrites=true&w=majority"
+const mongodbURI = process.env.mongodbURI || "mongodb+srv://dbuser1:123mypassword@cluster0.m20zxpk.mongodb.net/dbuser1?retryWrites=true&w=majority";
 mongoose.connect(mongodbURI);
 app.use(express.json());
 app.use(cookieParser())

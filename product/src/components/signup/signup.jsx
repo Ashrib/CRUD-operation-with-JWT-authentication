@@ -2,6 +2,8 @@ import "./signup.css"
 import { useState,useRef } from 'react';
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Toast from 'react-bootstrap/Toast';
 
 let baseUrl = ""
 if (window.location.href.split(":")[0] === "http") {
@@ -9,7 +11,7 @@ if (window.location.href.split(":")[0] === "http") {
   
 }
 else{
-    baseUrl = "https://lazy-blue-clownfish-wig.cyclic.app"
+    baseUrl = "https://prickly-bikini-clam.cyclic.app"
   }
 
 function Signup() {
@@ -23,18 +25,14 @@ function Signup() {
     const [lastName,setLastName] =useState ("") 
     const [email,setEmail] =useState ("") 
     const [password,setPassword] =useState ("") 
+    const [showError,setShowError] = useState (""); 
     let navigate = useNavigate();
-
-
-
-
 
 
 
 
     const signUpHandler = (event)=>{
         event.preventDefault()
-        let errorDiv = document.getElementById("error")
         let alertDiv = document.getElementById("alert")
 
         axios.post(`${baseUrl}/api/v1/signup`, {
@@ -52,39 +50,34 @@ function Signup() {
 
           }, (error) => {
             console.log(error);
-            alertDiv.style.display = "block"
-            errorDiv.textContent = error.response.data.message
+            console.log(error.message)
+            alertDiv.style.display = "flex";
+            setShowError(error.message);
           });
-      
-
-
-
     }
-    
     const closeHandler = () =>{
         let alertDiv = document.getElementById("alert")
-        alertDiv.style.display = "none"
-  
-    }
-
+        alertDiv.style.display = "none";
+      }
 
     return (
 
-        <div className='main-div'>
-            <div className="alerts-div" id="alert">
-                <div className="error-div">
-                    <p id="error"></p>
-                    <button onClick={closeHandler}>Ok</button>
+        <div className='content-div'>
+            <div className="error-alert" id="alert">
+            <Toast >
+            <Toast.Header closeButton={false}>
+              <strong className="me-auto">Error</strong>
+              <small className="err-close" onClick={closeHandler} closeButton={false}>X</small>
+            </Toast.Header>
+            <Toast.Body>{showError}</Toast.Body>
+          </Toast>
 
-                </div>
-
-
-            </div>
+          </div>
 
             <div className='sub-div'>
                 <h3>Register Yourself</h3>
                 <form onSubmit={signUpHandler}>
-                    <div className="name-div">
+                    <div className="names-inp">
                         <input ref={firstRef} type="text" placeholder="First Name" required onChange={(e) =>{
                             setFirstName(e.target.value)
 
@@ -105,7 +98,9 @@ function Signup() {
                             setPassword(e.target.value)
 
                         }} />
-                    <button type="submit">Register</button>
+                    <div className="btn-div">
+                    <button className="signup-btn" type="submit">Sign UP</button>
+                    </div>
                 </form>
                 <a href="/">Already have an account? Login</a>
 
