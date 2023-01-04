@@ -432,12 +432,6 @@ function Home() {
 
                 :
                 null
-          
-                    
-
-        
-
-              
         }
 
 
@@ -519,8 +513,6 @@ function Home() {
       </div>
 
      
-
-
 
 
       
