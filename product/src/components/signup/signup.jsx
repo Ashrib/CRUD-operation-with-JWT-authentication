@@ -62,7 +62,7 @@ function Signup() {
 
     return (
 
-        <div className='content-div'>
+        <div className='main-div'>
             <div className="error-alert" id="alert">
             <Toast >
             <Toast.Header closeButton={false}>
@@ -74,7 +74,7 @@ function Signup() {
 
           </div>
 
-            <div className='sub-div'>
+            <div className='content-div'>
                 <h3>Register Yourself</h3>
                 <form onSubmit={signUpHandler}>
                     <div className="names-inp">

@@ -2,9 +2,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    font-family: 'Roboto', sans-serif;
     background-color: rgba(128, 128, 128, 0.082);
-    
 }
 
 .content-div{
@@ -26,7 +24,7 @@ body{
 input{
     width: 100%;
     padding: 5px 10px;
-    /* margin-top: 20px; */
+    margin-top: 20px;
     border: 1px solid rgba(0, 0, 0, 0.11);
     background-color: transparent;
     border-radius: 5px;
@@ -36,7 +34,7 @@ input:focus{
 }
 .names-inp{
     display: flex;
-    gap: 5px;
+    gap: 3%;
 }
 
 .btn-div{
