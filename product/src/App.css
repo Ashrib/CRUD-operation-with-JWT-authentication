@@ -1,0 +1,13 @@
+.loadingSpinner{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh);
+    background-color: rgba(0, 0, 0, 0.342);
+    width: calc(100vw);
+}
+.loadingSpan{
+    font-weight: bold;
+    margin-left: 5px;
+}
